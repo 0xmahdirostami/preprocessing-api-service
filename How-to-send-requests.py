@@ -1,4 +1,4 @@
-#How to send requests
+#how to send Requests
 import requests, json
 
 #define Url
@@ -9,10 +9,10 @@ api1 = "https://api-service-interpolation.herokuapp.com/service1"
 input1 = open('./input_outputs/service1/input.json', 'r')
 input1 = json.load(input1)
 
-#send request
+#send Request
 result=requests.post(url=api1, json=input1)
 
-#Convert to json
+#convert to Json
 result=result.json()
 
 print("\n input: ", input1, "\n  \n output: ", result)
