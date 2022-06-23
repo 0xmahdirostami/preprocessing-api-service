@@ -4,6 +4,7 @@ import requests, json
 #define Url
 api0 = "https://api-service-interpolation.herokuapp.com/"
 api1 = "https://api-service-interpolation.herokuapp.com/service1"
+localhost = "http://127.0.0.1:80"
 
 #define Data
 input1 = open('./input_outputs/service1/input.json', 'r')
