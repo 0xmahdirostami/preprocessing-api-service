@@ -11,7 +11,7 @@ input1 = open('./input_outputs/service1/input.json', 'r')
 input1 = json.load(input1)
 
 #send Request
-result=requests.post(url=localhost, json=input1)
+result=requests.post(url=api1, json=input1)
 
 #convert to Json
 result=result.json()
