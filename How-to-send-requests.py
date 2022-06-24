@@ -21,7 +21,7 @@ management_data = open('./input_outputs/management_data/input.json', 'r')
 management_data = json.load(management_data)
 
 #send Request
-result=requests.post(url=localhost_management, json=management_data)
+result=requests.post(url=outlier, json=outlier_data)
 
 #convert to Json
 result=result.json()

@@ -18,6 +18,7 @@
     }
   },
   "config": {
-    "time_series": false
+    "methods": ["iqr", "z_score"],
+    "columns": ["feature"]
   }
 }
