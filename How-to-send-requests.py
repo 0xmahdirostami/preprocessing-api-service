@@ -2,18 +2,28 @@
 import requests, json
 
 #define Url
-api0 = "https://api-service-interpolation.herokuapp.com/"
-api1 = "https://api-service-interpolation.herokuapp.com/service1"
+api = "https://api-service-interpolation.herokuapp.com/"
+interpolate = api + "/interpolate"
+outlier = api + "/outlier"
+manage = api + "/management"
+
 localhost = "http://127.0.0.1:80"
+localhost_interpolate = localhost + "/interpolate"
+localhost_outlier = localhost + "/outlier"
+localhost_management = localhost + "/management"
 
 #define Data
-input1 = open('./input_outputs/service1/input.json', 'r')
-input1 = json.load(input1)
+interpolate_data = open('./input_outputs/interpolate_data/input.json', 'r')
+interpolate_data = json.load(interpolate_data)
+outlier_data = open('./input_outputs/outlier_data/input.json', 'r')
+outlier_data = json.load(outlier_data)
+management_data = open('./input_outputs/management_data/input.json', 'r')
+management_data = json.load(management_data)
 
 #send Request
-result=requests.post(url=api1, json=input1)
+result=requests.post(url=localhost_management, json=management_data)
 
 #convert to Json
 result=result.json()
 
-print("\n input: ", input1, "\n  \n output: ", result)
+print("result:\n", result)

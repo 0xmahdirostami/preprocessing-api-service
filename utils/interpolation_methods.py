@@ -1,27 +1,27 @@
 from utils.common import read_json_time_series
+import pandas as pd
 
-def interpolation(data, config):
-    if config['time'] == 'daily':
+def inter(data, time, method):
+    if time == 'daily':
         data = data.set_index('time')
         data = data.resample('D')
-        data = data.interpolate(method=config['interpolation'])
-        data.reset_index(inplace=True)
-
-    elif config['time'] == 'monthly':
+    elif time == 'monthly':
         data = data.set_index('time')
         data = data.resample('M')
-        data = data.interpolate(method=config['interpolation'])
-        data.reset_index(inplace=True)
-
-    else:
-        data = None
-
+    data = data.interpolate(method=method)
+    data.reset_index(inplace=True)
     return data
 
 
-def linear_interpolation(data ,config):
-    data = read_json_time_series(data, config)
-    data = interpolation(data, config)
+def interpolation(data ,config):
+    #change data format to pandas
+    data = read_json_time_series(data)
+    time = config['time'].lower()
+    method = config['interpolation'].lower()
+    data['time'] = pd.to_datetime(data['time'], unit='ms')
+    #interpolation
+    data = inter(data, time, method)
+    #convert to json
     data = data.to_json()
     return data
 

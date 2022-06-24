@@ -1,8 +1,8 @@
 import gzip
 from flask import make_response, json
-import pandas as pd
 import numpy as np
-from persiantools.jdatetime import JalaliDate
+import pandas as pd
+
 
 def response_message(data=None, status=200):
     if status in range(200, 400):
@@ -29,12 +29,7 @@ def convert(o):
     if pd.isna(o):
         return None
 
-def read_json_time_series(data, config):
+def read_json_time_series(data):
     j_data = json.dumps(data)
     data = pd.read_json(j_data)
-    if config["type"] == 'miladi':
-        data['time'] = pd.to_datetime(data['time'], unit='ms')
-    elif config["type"] == 'shamsi':
-        data['time'] = JalaliDate.fromtimestamp(data['time'])
-        data['time'] = JalaliDate(data['time']).to_gregorian()
     return data
