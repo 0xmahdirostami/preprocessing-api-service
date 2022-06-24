@@ -2,7 +2,7 @@
 import requests, json
 
 #define Url
-api = "https://api-service-interpolation.herokuapp.com/"
+api = "https://preprocessing-api-service.herokuapp.com/"
 interpolate = api + "/interpolate"
 outlier = api + "/outlier"
 manage = api + "/management"
