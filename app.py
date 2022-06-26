@@ -11,7 +11,7 @@ app = Flask(__name__)
 def isup():
     return response_message('API is active')
 
-@app.route('/swagger')
+@app.route('/api_docs')
 def swagger():
     return render_template('index.html')
 
