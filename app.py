@@ -11,6 +11,10 @@ app = Flask(__name__)
 def isup():
     return response_message('API is active')
 
+@app.route('/swagger')
+def swagger():
+    return render_template('index.html')
+
 @app.route('/interpolate', methods=['GET', 'POST'])
 def interpolate():
     req = request.get_json()
