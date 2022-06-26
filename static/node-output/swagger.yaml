@@ -1,7 +1,7 @@
 {
   "openapi" : "3.0.0",
   "info" : {
-    "title" : "Swagger preprocess",
+    "title" : "preprocessing api",
     "description" : "This is a preprocessing-api-service",
     "termsOfService" : "http://swagger.io/terms/",
     "contact" : {
