@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import os
 from utils.common import response_message
 from utils.interpolation_methods import interpolation
